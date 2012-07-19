@@ -1,0 +1,10 @@
+/Temp
+*.csproj
+*.sln
+*.suo
+.DS_Store
+Ressources/.DS_Store
+/Assembly-CSharp.pidb
+/Library/cache
+/Library/metadata
+/Library/previews
