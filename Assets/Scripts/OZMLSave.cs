@@ -31,7 +31,7 @@ public class OZMLSave : MonoBehaviour
 		
 		foreach( Material mat in SceneMaterials )
 		{
-			writer.WriteRaw( "." + mat.name + "{texture:http://dev.xxiivv.com/ozml/img/" + mat.name + ".jpg;}");
+			writer.WriteRaw( "." + mat.name + "{texture:http://dev.xxiivv.com/ozml/img/" + mat.name + ".jpg}");
 		}
 		
 		writer.WriteEndElement();
