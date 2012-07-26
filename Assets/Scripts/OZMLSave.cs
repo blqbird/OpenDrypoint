@@ -5,6 +5,7 @@ using System.Xml;
 public class OZMLSave : MonoBehaviour 
 {
 	public string LevelName = "dori0";
+	public string MusicName = "mu_dori1";
 	public Material[] SceneMaterials;
 	
 	void Start() 
@@ -14,6 +15,7 @@ public class OZMLSave : MonoBehaviour
 		writer.WriteStartElement("ozml");
 		
 		// Scene
+		writer.WriteStartElement("head");
 		writer.WriteStartElement("scene");
 		
 		string background = GetComponentInChildren<Camera>().backgroundColor.ToString();
@@ -25,7 +27,22 @@ public class OZMLSave : MonoBehaviour
 		writer.WriteAttributeString( "fog", fog );
 			
 		writer.WriteEndElement();
+		
+		// Camera
+		writer.WriteStartElement("camera");
+		
+		string camPositionString = transform.position.ToString();
+		writer.WriteAttributeString( "position", camPositionString.Substring( 1, camPositionString.Length - 2 ) );
+
+		writer.WriteEndElement();
 		writer.Flush();
+		
+		// Music
+		writer.WriteStartElement("audio");
+		writer.WriteAttributeString( "url", "https://dl.dropbox.com/u/17070747/" + MusicName );
+		writer.WriteEndElement();
+		writer.Flush();
+		
 		// Materials
 		writer.WriteStartElement("materials");
 		
